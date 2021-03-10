@@ -19,7 +19,6 @@ The nonlinear controller: to be done once I am working on this
 
 Some drawbacks:
 
-* **Time allocation** should be done at the very beginning, how to allocate the time efficiently deserve to study. One paper by Gao Fei study optimal time allocation is here.
+* **Time allocation** should be done at the very beginning, how to allocate the time efficiently deserve to study. One paper by Gao Fei study optimal time allocation is [here](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8593579).
 
 * **Dynamic infeasible.** Even through they proved that the quadrotor is differentially flat, the pitch and roll are not considered here. One method to solve this problem is that  using **inverse dynamics** to transfer pitch to force to acceleration and add it to constraint during optimization. I am not pretty sure about the singularity issue, deserve to study.
-
