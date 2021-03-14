@@ -2,7 +2,7 @@
 
 # Learning-based control
 
-Most existing well-developed controller are with PID and MPC. However, PID is simply a linear controller while MPC requires to have a well modeling of the system dynamics. Many robotic applications are with highly nonlinear system dynamics. In many applications, we use polynomial fitting to model the motor and use linear system to approximate the nonlinear. Then we have these questions:
+Most existing well-developed controllers are with PID and MPC. However, PID is just a linear controller while MPC requires to have a well modeling of the system dynamics. Many robotic applications are with highly nonlinear system dynamics. In many applications, we use polynomial fitting to model the motor and use linear system to approximate the nonlinear. Then we have these questions:
 
 * Can we design a nonlinear controller to control the robot?
 

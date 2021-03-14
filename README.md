@@ -10,9 +10,10 @@ Besides, some interesting and useful notes are also achieved here.
 
 ## Trajectory optimization
 
-| date       | paper title                                                  | publisher | author                           |
-| ---------- | ------------------------------------------------------------ | --------- | -------------------------------- |
-| 2021-03-09 | Minimum Snap Trajectory Generation and Control for Quadrotors | ICRA2011  | Daniel Mellinger and Vijay Kumar |
+| date       | paper title                                                  | publisher | author                                                 |
+| ---------- | ------------------------------------------------------------ | --------- | ------------------------------------------------------ |
+| 2021-03-10 | ALTRO: A Fast Solver for Constrained Trajectory Optimization | IROS2019  | Taylor A. Howell; Brian E. Jackson; Zachary Manchester |
+| 2021-03-09 | Minimum Snap Trajectory Generation and Control for Quadrotors | ICRA2011  | Daniel Mellinger and Vijay Kumar                       |
 
 ## Learning-based control
 

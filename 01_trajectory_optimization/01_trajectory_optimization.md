@@ -8,6 +8,48 @@ Trajectory optimization can be categorized into **direct collocation method** an
 * **Shooting method** considers the control inputs as the decision variables and the trajectory can be obtained by forward simulation using system dynamic equation. Originally, shooting method is used to solved ODE problems, a concise tutorials on shooting method can be found [here](https://www.youtube.com/watch?v=ZMgikZ-lcS8). 
 * A good course on optimal control is [here](https://github.com/Optimal-Control-16-745),  hope Zac will make this repo always public.
 
+
+
+## ALTRO: A Fast Solver for Constrained Trajectory Optimization
+
+[PDF](https://ieeexplore.ieee.org/document/8967788)    [NOTE on AL-ILQR](https://bjack205.github.io/papers/AL_iLQR_Tutorial.pdf)   [code]()             By Taylor A. Howell; Brian E. Jackson; Zachary Manchester
+
+A cool paper on solving constrained trajectory optimization problem with direct collocation method and shooting method. The main framework is based on iLQR/DDP with lots of tricks from optimization. The author also provides us a note of AL-ILQR, which is very useful.
+
+The main contributions are as follows:
+
+* (From [11]) Adopt Augmented Lagrangian methods to tackle $g(x_k,u_k)\leq 0$ and $h(x_k,u_k)=0$. The idea is similar to ADMM, which is iteratively updating variables and  Lagrangian multipliers. Increasing the Lagrangian multipliers for penalization until convergence. (*Question: will it convergence with linearlization?*)
+
+* Projection line search method for solution polishing. (*Question:  convergence rate?*)
+
+* A method for initializing DDP with an infeasible state trajectory. The idea is also from optimization that using slack variables to solve the problem. (*Question: but why finally it will converge to $s_k =0 $?*) 
+
+* A numerically robust square-root formulation of the DDP algorithm. (Haven't read)
+
+* A strategy for solving minimum-time problems with DDP. 
+
+  Since the number of state and control inputs are fixed in the nominal trajectory, to minimize the time horizon, they treat $\Delta t$ as optimizing parameter and and add an additional cost term, $\sum_{k=0}^{N-1}R_{\tau}\tau_k^2$, to objective and try to optimize it.
+
+  Another formulate of the objective is mentioned in Zac's optimal control course:
+  $$
+  J = l_N(x_N)+\tau\sum_{k=0}^{N-1}l_k(x_k,u_k)
+  $$
+  Similar concerns is whether it can converges and achieve optimality.
+  $$
+  \dots s
+  $$
+  
+
+This paper is sooo cool as it combines control and optimization to solve the robotic problem. I just has some concerns on 1) **optimality** ; 2) **convergence**; 3) **convergence rate**. 
+
+Responses from Brian on my questions: so nice 
+
+![ALTRO_questions](img/ALTRO_question.png)
+
+![Responses_Brian](img/ALTRO_responses_brian.png)
+
+
+
 ## Minimum Snap Trajectory Generation and Control for Quadrotors
 [PDF](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5980409)    [code]()    [code by me](https://github.com/Garyandtang/ELEC5660-2021/tree/main/project1/proj1phase2)                                                By Daniel Mellinger and Vijay Kumar  
 
