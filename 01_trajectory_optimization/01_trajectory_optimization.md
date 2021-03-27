@@ -10,6 +10,33 @@ Trajectory optimization can be categorized into **direct collocation method** an
 
 
 
+## ALTRO-C: A Fast Solver for Conic Model-Predictive Control
+
+[PDF](http://roboticexplorationlab.org/papers/ALTRO_MPC.pdf)   [code](https://github.com/RoboticExplorationLab/altro-mpc-icra2021)                           Brian E. Jackson, Tarun Punnoose, Daniel Neamati, Kevin Tracy, Rianna Jitosho, Zachary ManchesterAdopt 
+
+Adopt ALTRO to an MPC framework with convex  conic  constraints, provides various example with code.
+
+Key complements are almost same as ALTRO:
+
+* use ILQR as inner solver
+
+* modify the augmented Lagrangian formulation to support second-order cone constraints
+
+  from
+  $$
+  \mathcal{L}_A(x)=f(x)-\lambda^{T}C(x)+\mu\frac{1}{2}c(x)^Tc(x)
+  $$
+  to
+  $$
+  \mathcal{L}_A(x)=f(x)+\frac{1}{2\mu}(\|\lambda-\mu c(x)\|^2-\|\lambda\|^2)
+  $$
+  or within projection to $\mathcal{K}$
+  $$
+  \mathcal{L}_A(x)=f(x)+\frac{1}{2\mu}(\Pi_{\mathcal{K}}\|\lambda-\mu c(x)\|^2-\|\lambda\|^2)
+  $$
+
+* 
+
 ## ALTRO: A Fast Solver for Constrained Trajectory Optimization
 
 [PDF](https://ieeexplore.ieee.org/document/8967788)    [NOTE on AL-ILQR](https://bjack205.github.io/papers/AL_iLQR_Tutorial.pdf)   [code]()             By Taylor A. Howell; Brian E. Jackson; Zachary Manchester
