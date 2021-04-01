@@ -38,6 +38,7 @@ Besides, some interesting and useful notes are also achieved here.
 
 ## Reinforcement learning
 
-| date | paper title | publisher | author |
-| ---- | ----------- | --------- | ------ |
-|      |             |           |        |
+| date       | paper title                                                  | publisher             | author    |
+| ---------- | ------------------------------------------------------------ | --------------------- | --------- |
+| 2021-03-30 | SCC: an efficient deep reinforcement learning agent mastering the game of StarCraft II | NeurIPS workshop 2020 | inspir.ai |
+
