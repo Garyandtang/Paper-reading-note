@@ -6,7 +6,7 @@
 
 Notes on my paper reading. In particular, I am working on **control, estimation, optimization and robotics**, hence most papers are in this fields. Recently, I am interested in **learning-based control**, such that some paper are in this field.
 
-Besides, some interesting and useful notes are also achieved here.
+Besides, some interesting and useful notes are also archived here.
 
 ## Trajectory optimization
 
