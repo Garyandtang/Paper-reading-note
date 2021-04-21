@@ -10,17 +10,18 @@ Besides, some interesting and useful notes are also archived here.
 
 ## Trajectory optimization
 
-| date       | paper title                                                  | publisher                | author                                                       |
-| ---------- | ------------------------------------------------------------ | ------------------------ | ------------------------------------------------------------ |
-| 2021-03-24 | ALTRO-C: A Fast Solver for Conic Model-Predictive Control    | Under review on ICRA2021 | Brian E. Jackson, Tarun Punnoose, Daniel Neamati, Kevin Tracy, Rianna Jitosho, Zachary Manchester |
-| 2021-03-10 | ALTRO: A Fast Solver for Constrained Trajectory Optimization | IROS2019                 | Taylor A. Howell; Brian E. Jackson; Zachary Manchester       |
-| 2021-03-09 | Minimum Snap Trajectory Generation and Control for Quadrotors | ICRA2011                 | Daniel Mellinger and Vijay Kumar                             |
+| date       | paper title                                                  | publisher                | Team        |
+| ---------- | ------------------------------------------------------------ | ------------------------ | ----------- |
+| 2021-04-20 | GuSTO: Guaranteed sequential trajectory optimization via sequential convex programming | IROS 2019                | Stanford    |
+| 2021-03-24 | ALTRO-C: A Fast Solver for Conic Model-Predictive Control    | Under review on ICRA2021 | REX CMU     |
+| 2021-03-10 | ALTRO: A Fast Solver for Constrained Trajectory Optimization | IROS2019                 | REX CMU     |
+| 2021-03-09 | Minimum Snap Trajectory Generation and Control for Quadrotors | ICRA2011                 | GRASP UPenn |
 
 ## Learning-based control
 
-| date       | paper title                                                  | publisher | author                               |
-| ---------- | ------------------------------------------------------------ | --------- | ------------------------------------ |
-| 2021-03-10 | Virtual-to-real deep reinforcement learning: Continuous control of mobile robots for mapless navigation | IROS2017  | Lei Tai; Giuseppe Paolo; Ming Liutai |
+| date       | paper title                                                  | publisher | author       |
+| ---------- | ------------------------------------------------------------ | --------- | ------------ |
+| 2021-03-10 | Virtual-to-real deep reinforcement learning: Continuous control of mobile robots for mapless navigation | IROS2017  | RAMLAB HKUST |
 
 
 ## Robotics-Others

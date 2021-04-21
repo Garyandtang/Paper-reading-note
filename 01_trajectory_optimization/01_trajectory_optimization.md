@@ -4,11 +4,31 @@
 
 Trajectory optimization can be categorized into **direct collocation method** and **shooting method**.
 
-* **Direct collocation method** eliminates the system dynamics constraints, the control inputs are calculated using inverse dynamics.
-* **Shooting method** considers the control inputs as the decision variables and the trajectory can be obtained by forward simulation using system dynamic equation. Originally, shooting method is used to solved ODE problems, a concise tutorials on shooting method can be found [here](https://www.youtube.com/watch?v=ZMgikZ-lcS8). 
+* **Direct collocation method** consider both control inputs and states as decision variable, and adopt nonlinear optimization solver, like IPOPT, to optimize it.
+* **Indirect shooting method** considers the control inputs as the decision variables and the trajectory can be obtained by forward simulation using system dynamic equation. Originally, shooting method is used to solved ODE problems, a concise tutorials on shooting method can be found [here](https://www.youtube.com/watch?v=ZMgikZ-lcS8). 
+* **Sampling based motion planning** eliminates the system dynamics constraints, the control inputs are calculated using inverse dynamics.
 * A good course on optimal control is [here](https://github.com/Optimal-Control-16-745),  hope Zac will make this repo always public.
+* A good reference on LQR, TVLQR, ILQR is [here](https://people.eecs.berkeley.edu/~pabbeel/cs287-fa12/slides/LQR.pdf), optimal control course at UCB. 
 
 
+
+## GuSTO: Guaranteed sequential trajectory optimization via sequential convex programming
+
+[PDF](https://arxiv.org/abs/1903.00155)   [code](https://github.com/StanfordASL/GuSTO.jl)                               Riccardo Bonalli, Abhishek Cauligi, Andrew Bylard, Marco Pavone 
+
+Adopt sequential convex programming (SCP) to handle continuous-time control-affine system trajectory optimization. Provide theoretical guarantees on convergence with Pontryagin Maximum Principle.  One thing it outperform AL-ILQR is that it does not require feasible initial guess.
+
+The introduction of this paper is quite well organized., the mathematic notation in this paper is very messy, the code is quite clear.
+
+In the algorithm they do not use forward simulation, I am not pretty sure about how the trajectory can satisfy the constraint finally (*Question?*)
+
+![gusto_algorithm](img/gusto_algorithm.png)
+
+The trust region seems very nontrival, desires to read in-depth.
+
+![susto_trust_region](img/susto_trust_region.png)
+
+To my best understanding on Pontryagin Maximum Principle, it is similar to Bellman's optimal principle. Maybe the idea of this paper is similar to AL-ILQR.
 
 ## ALTRO-C: A Fast Solver for Conic Model-Predictive Control
 
@@ -39,19 +59,35 @@ Key complements are almost same as ALTRO:
 
 ## ALTRO: A Fast Solver for Constrained Trajectory Optimization
 
-[PDF](https://ieeexplore.ieee.org/document/8967788)    [NOTE on AL-ILQR](https://bjack205.github.io/papers/AL_iLQR_Tutorial.pdf)   [code]()             By Taylor A. Howell; Brian E. Jackson; Zachary Manchester
+[PDF](https://ieeexplore.ieee.org/document/8967788)    [NOTE on AL-ILQR](https://bjack205.github.io/papers/AL_iLQR_Tutorial.pdf)   [code]()       [Silde by me](https://drive.google.com/file/d/1tBPyakpD0CgtCOPlbcdxDOl90gVdLYc5/view?usp=sharing)      By Taylor A. Howell; Brian E. Jackson; Zachary Manchester
 
-A cool paper on solving constrained trajectory optimization problem with direct collocation method and shooting method. The main framework is based on iLQR/DDP with lots of tricks from optimization. The author also provides us a note of AL-ILQR, which is very useful.
+A cool paper on solving constrained trajectory optimization problem with direct collocation method and shooting method. The main framework is based on iLQR/DDP with lots of tricks from optimization. The author also provides us a note of AL-ILQR, which is very useful. 
 
 The main contributions are as follows:
 
-* (From [11]) Adopt Augmented Lagrangian methods to tackle $g(x_k,u_k)\leq 0$ and $h(x_k,u_k)=0$. The idea is similar to ADMM, which is iteratively updating variables and  Lagrangian multipliers. Increasing the Lagrangian multipliers for penalization until convergence. (*Question: will it convergence with linearlization?*)
+* (From [11]) Adopt Augmented Lagrangian methods to tackle $g(x_k,u_k)\leq 0$ and $h(x_k,u_k)=0$. The idea is similar to ADMM, which is iteratively updating penalty  parameters  and  Lagrangian multipliers. Increasing the Lagrangian multipliers for penalization until convergence. (*Question: will it convergence with linearization?*)
 
-* Projection line search method for solution polishing. (*Question:  convergence rate?*)
+  Answer: The key components of AL-ILQR is ILQR, they have some convergence guarantees. Some additional criteria need to be satisfied to make constraints convergence, to element this problem, author proposed [active-set projection](https://en.wikipedia.org/wiki/Active-set_method) method for solution polishing.
+
+   
+
+* Active-set projection method for solution polishing. (*Question:  convergence rate?*)
+
+  Quite useful method in numerical optimization, here, the authors formated the problem as a QCQP by quatratization and linearization.
+
+  
 
 * A method for initializing DDP with an infeasible state trajectory. The idea is also from optimization that using slack variables to solve the problem. (*Question: but why finally it will converge to $s_k =0 $?*) 
 
-* A numerically robust square-root formulation of the DDP algorithm. (Haven't read)
+  Idea borrow from direct collocation method.
+
+  
+
+* A numerically robust square-root formulation of the DDP algorithm. 
+
+  Quick useful to handle numerical ill-condition problem with matrix decomposition.
+
+  
 
 * A strategy for solving minimum-time problems with DDP. 
 
@@ -65,7 +101,7 @@ The main contributions are as follows:
   $$
   \dots s
   $$
-  
+
 
 This paper is sooo cool as it combines control and optimization to solve the robotic problem. I just has some concerns on 1) **optimality** ; 2) **convergence**; 3) **convergence rate**. 
 
@@ -89,5 +125,4 @@ The nonlinear controller: to be done once I am working on this
 Some drawbacks:
 
 * **Time allocation** should be done at the very beginning, how to allocate the time efficiently deserve to study. One paper by Gao Fei study optimal time allocation is [here](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8593579).
-
-* **Dynamic infeasible.** Even through they proved that the quadrotor is differentially flat, the pitch and roll are not considered here. One method to solve this problem is that  using **inverse dynamics** to transfer pitch to force to acceleration and add it to constraint during optimization. I am not pretty sure about the singularity issue, deserve to study.
+* **Dynamic infeasible.** Even through they proved that the quadrotor is differentially flat, the pitch and roll are not considered here. One method to solve this problem is that  using **inverse dynamics** to transfer pitch to force to acceleration and add it to constraint during optimization. I am not pretty sure about the singul**Sampling based motion planning** eliminates the system dynamics constraints, the control inputs are calculated using inverse dynamics.arity issue, deserve to study.
