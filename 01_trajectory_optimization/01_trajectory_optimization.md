@@ -12,6 +12,30 @@ Trajectory optimization can be categorized into **direct collocation method** an
 
 
 
+## Geometrically Constrained Trajectory Optimization for Multicopters
+
+[PDF](https://arxiv.org/pdf/2103.00190.pdf)   [code]()                                    Zhepei Wang, Xin Zhou, Chao Xu and Fei Gao
+
+An  optimization-based  framework  for  multicopter  trajectory  planning  subject  to  geometrical  spatial constraints  and  user-defined  dynamic  constraints.  The authors base on differential flatness assumption and  propose direct optimization in Flat output space, so as the state-input constraints
+
+![gusto_algorithm](img/GCTO-transform.png)
+
+*Question: with approximation, can optimality be guaranteed?*
+
+The problem is hence formulated as follows, which the cost is with quadratic control effort with time regularization.
+
+![gusto_algorithm](img/GCTO-problem.png) 
+
+The **equation (13b)** describes the collision-free motion, the configuration space is generally nonconvex. Hence the authors approximate it with the union of $M_p$ closed convex set
+
+![gusto_algorithm](img/GCTO-set-appro.png)
+
+*Question: with approximation, can optimality be guaranteed?*
+
+
+
+
+
 ## GuSTO: Guaranteed sequential trajectory optimization via sequential convex programming
 
 [PDF](https://arxiv.org/abs/1903.00155)   [code](https://github.com/StanfordASL/GuSTO.jl)                               Riccardo Bonalli, Abhishek Cauligi, Andrew Bylard, Marco Pavone 
@@ -20,7 +44,7 @@ Adopt sequential convex programming (SCP) to handle continuous-time control-affi
 
 The introduction of this paper is quite well organized., the mathematic notation in this paper is very messy, the code is quite clear.
 
-In the algorithm they do not use forward simulation, I am not pretty sure about how the trajectory can satisfy the constraint finally (*Question?*)
+In the algorithm they do not use forward simulation, I am not pretty sure about how the trajectory can satisfy the constraint finally if just with Algorithm 1, but in their implementation, they have forward simulation (*Question?*)
 
 ![gusto_algorithm](img/gusto_algorithm.png)
 

@@ -12,6 +12,8 @@ Besides, some interesting and useful notes are also archived here.
 
 | date       | paper title                                                  | publisher                | Team        |
 | ---------- | ------------------------------------------------------------ | ------------------------ | ----------- |
+| 2021-04-23 | RAPTOR: Robust and Perception-aware Trajectory<br/>Replanning for Quadrotor Fast Flight | TRO                      | UAV HKUST   |
+| 2021-04-22 | Geometrically Constrained Trajectory Optimization for Multicopters | Under Review             | FAST  ZJU   |
 | 2021-04-20 | GuSTO: Guaranteed sequential trajectory optimization via sequential convex programming | IROS 2019                | Stanford    |
 | 2021-03-24 | ALTRO-C: A Fast Solver for Conic Model-Predictive Control    | Under review on ICRA2021 | REX CMU     |
 | 2021-03-10 | ALTRO: A Fast Solver for Constrained Trajectory Optimization | IROS2019                 | REX CMU     |
@@ -21,6 +23,7 @@ Besides, some interesting and useful notes are also archived here.
 
 | date       | paper title                                                  | publisher | author       |
 | ---------- | ------------------------------------------------------------ | --------- | ------------ |
+| 2021-04-24 | Flying through a narrow gap using neural network: an end-to-end planning and control approach | IROS2019  | MARS HKU     |
 | 2021-03-10 | Virtual-to-real deep reinforcement learning: Continuous control of mobile robots for mapless navigation | IROS2017  | RAMLAB HKUST |
 
 

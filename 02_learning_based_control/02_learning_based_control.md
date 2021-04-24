@@ -12,7 +12,35 @@ Most existing well-developed controllers are with PID and MPC. However, PID is j
 
   Maybe yes, that is why we have this learning-based control.
 
+## Flying through a narrow gap using neural network: an end-to-end planning and control approach
+
+[PDF](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8967944)    [code]()                                                       By Jiarong Lin, Luqi Wang, Fei Gao, Shaojie Shen and Fu Zhang
+
+Adopt imitation learning and reinforcement learning to solve quadrotor planning and control problem.
+
+Propose an end-to-end planning and control pipeline with neural network.
+
+**System framework**
+
+![system](./img/EEPCA_system_framework.png)
+
+**Network structure**
+
+![planning](./img/planning_network.png)
+
+![planning](./img/control_network.png)
+
+![planning](./img/policy_network.png)
+
+**Question**
+
+1. Why learning control?
+2. Is that just using several full-connected layer to do the planning and control?
+3. how to collect data?
+4. how to handle visual to real problem?
+
 ## Virtual-to-real deep reinforcement learning: Continuous control of mobile robots for mapless navigation
+
 [PDF](https://ieeexplore.ieee.org/abstract/document/8202134)    [code]()    [code by me](https://github.com/Garyandtang/RL_position_control_gazebo)                                                 By Lei Tai; Giuseppe Paolo; Ming Liutai
 
 It may be the first paper using RL in mobile robot navigation. The key idea here is using sparse Laser measurement to do navigation task in a mapless environment. The controller/agent is modified DDPG, so call Asynchronous DDPG (*Qeustion: is it similar to A3C?*). The experiments are done in VREP and real robot. The contributions are:
