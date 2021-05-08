@@ -47,3 +47,9 @@ Besides, some interesting and useful notes are also archived here.
 | ---------- | ------------------------------------------------------------ | --------------------- | --------- |
 | 2021-03-30 | SCC: an efficient deep reinforcement learning agent mastering the game of StarCraft II | NeurIPS workshop 2020 | inspir.ai |
 
+## Estimation
+
+| date       | paper title                                                  | publisher | author                                             |
+| ---------- | ------------------------------------------------------------ | --------- | -------------------------------------------------- |
+| 2021-05-07 | A Multi-State Constraint Kalman Filter for Vision-aided Inertial Navigation | IROS 2007 | Anastasios I. Mourikis and Stergios I. Roumeliotis |
+
