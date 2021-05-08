@@ -28,9 +28,10 @@ Besides, some interesting and useful notes are also archived here.
 
 
 ## Robotics-Others
-| date       | paper title                                                  | publisher | author                                                       |
-| ---------- | ------------------------------------------------------------ | --------- | ------------------------------------------------------------ |
-| 2021-03-14 | Dimensionality Reduction in Controlling Articulated Snake Robot for Endoscopy Under Dynamic Active Constraints | TRO2013   | Ka-Wai Kwok, Kuen Hung Tsoi, Valentina Vitiello, James Clark, Gary C. T. Chow, Wayne Luk, Guang-Zhong Yang |
+| date       | paper title                                                  | publisher | author             |
+| ---------- | ------------------------------------------------------------ | --------- | ------------------ |
+| 2021-04-27 | Adapting to Performance Variations in Multi-Robot Coverage   | ICRA2015  | Boston  University |
+| 2021-03-14 | Dimensionality Reduction in Controlling Articulated Snake Robot for Endoscopy Under Dynamic Active Constraints | TRO2013   | HKU                |
 
 
 ## Learning
